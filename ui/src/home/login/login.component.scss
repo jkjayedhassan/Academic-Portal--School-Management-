@@ -1,0 +1,65 @@
+.card {
+    font-family: 'Times New Roman', Times, serif;
+    background: #0f0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ;
+    height: 100%;
+}
+
+.card-body {
+    height: 37rem;
+    opacity: 0.9;
+    padding-top: 80px;
+
+}
+
+
+.form {
+
+    padding-top: 10px;
+    background: #0f0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 20px;
+}
+
+h4 {
+    background-color: #7d5fff;
+    font-family: 'Times New Roman';
+    font-weight: bolder;
+    color: white;
+    border-radius: 10px;
+}
+
+.signup {
+    font-weight: normal;
+    color: #ecf0f1;
+}
+
+label {
+    color: #ecf0f1;
+}
+
+.alert {
+    color: #ff4d4d;
+    font-weight: lighter;
+    font-size: 12px;
+    background-color: #7d5fff;
+
+
+    display: contents;
+
+}
+
+.btn {
+    background-color: #7d5fff;
+
+
+}

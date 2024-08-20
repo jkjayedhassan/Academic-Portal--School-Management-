@@ -1,0 +1,39 @@
+<div class="mask d-flex align-items-center h-auto bg-gradient-custom-3">
+  <div class="container h-auto">
+    <div class="row d-flex justify-content-center align-items-center h-auto">
+      <div class="col-12">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <h2 class="text-center">Subject List</h2>
+
+            <div class="mb-4">
+              <label for="classSelect" class="form-label">Select Class</label>
+              <select id="classSelect" class="form-select" (change)="onClassChange($event)">
+                <option *ngFor="let class of classes" [value]="class.id">
+                  {{ class.className }}
+                </option>
+              </select>
+            </div>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Class Name</th>
+                  <th>Subject Code</th>
+                  <th>Subject Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let subject of subjectList">
+                  <td>{{ subject.className }}</td>
+                  <td>{{ subject.subjectCode }}</td>
+                  <td>{{ subject.subjectName }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

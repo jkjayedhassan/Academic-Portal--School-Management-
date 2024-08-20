@@ -1,0 +1,59 @@
+<div class="row pt-5">
+  <div class="mask d-flex align-items-center h-auto bg-gradient-custom-3">
+      <div class="container h-auto">
+          <div class="row d-flex justify-content-center align-items-center h-auto">
+              <div class="col-12">
+                  <div class="card" style="border-radius: 15px;">
+                      <div class="card-body p-5">
+                          <div class="row pt-5">
+                              <div class="col-md-8 offset-md-1">
+                                  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                                      <h4 class="text-center mb-4">Class Form</h4>
+
+                                      <div class="row mb-3">
+                                          <div class="col-md-6 form-group">
+                                              <label for="className" class="form-label"><i class="fas fa-building"></i> Class Name</label>
+                                              <input type="text" id="className" formControlName="className" class="form-control">
+                                              <div *ngIf="formGroup.get('className')?.invalid && (formGroup.get('className')?.dirty || formGroup.get('className')?.touched)" class="text-danger">
+                                                  <div *ngIf="formGroup.get('className')?.errors?.['required']">
+                                                      Class Name is required.
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-md-6 form-group">
+                                              <label for="classTeacher" class="form-label"><i class="fas fa-chalkboard-teacher"></i> Class Teacher Name</label>
+                                              <input type="text" id="classTeacher" formControlName="classTeacher" class="form-control">
+                                              <div *ngIf="formGroup.get('classTeacher')?.invalid && (formGroup.get('classTeacher')?.dirty || formGroup.get('classTeacher')?.touched)" class="text-danger">
+                                                  <div *ngIf="formGroup.get('classTeacher')?.errors?.['required']">
+                                                      Class Teacher Name is required.
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <div formArrayName="departments" class="mb-3">
+                                        <label for="department" class="form-label"><i class="fas fa-chalkboard-teacher"></i> Department</label>
+
+                                          <div *ngFor="let department of departments.controls; let i = index" [formGroupName]="i" class="d-flex mb-2">
+                                              <input formControlName="name" placeholder="Department Name" class="form-control me-2" />
+                                              
+                                          <button *ngIf="i == 0" type="button" (click)="addDepartment()" class="btn btn-primary">+</button>
+                                              <button *ngIf="i > 0" type="button" (click)="removeDepartment(i)" class="btn btn-danger">-</button>
+                                          </div>
+                                      </div>
+
+                                      <div class="d-flex justify-content-between">
+                                          <button type="submit" class="btn btn-primary me-2">Submit</button>
+                                          <a [routerLink]="'/class-list'" class="btn btn-secondary">Class List</a>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

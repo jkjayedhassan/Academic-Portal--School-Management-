@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="mask d-flex align-items-center h-auto bg gradient-custom-3">
+    <div class="container h-auto">
+        <div class="row d-flex justify-content-center align-items-center h-auto">
+            <div class="col-12">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+                        <div class="row pt-5">
+                            <div class="row pt-5"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 offset-md-1">
+                                <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h4 class="text-center">Teacher Form</h4>
+                                        <div class="form-group photo-container text-center col-md-1">
+                                            <label for="photo">Photo</label>
+                                            <input type="file" id="photo" (change)="onFileChange($event)" class="form-control mb-2">
+                                            <div *ngIf="photoError" class="text-danger">
+                                                Photo is required.
+                                            </div>
+                                            <img *ngIf="photoPreview" [src]="photoPreview" alt="Photo Preview" class="img-fluid">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-6 form-group">
+                                            <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                                            <input type="text" id="fullName" formControlName="fullName" class="form-control">
+                                            <div *ngIf="formGroup.get('fullName')?.invalid && (formGroup.get('fullName')?.dirty || formGroup.get('fullName')?.touched)" class="text-danger">
+                                                <div *ngIf="formGroup.get('fullName')?.errors?.['required']">Full Name is required.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="contactNumber"><i class="fas fa-phone"></i> Contact Number</label>
+                                            <input type="text" id="contactNumber" formControlName="contactNumber" class="form-control">
+                                            <div *ngIf="formGroup.get('contactNumber')?.invalid && (formGroup.get('contactNumber')?.dirty || formGroup.get('contactNumber')?.touched)" class="text-danger">
+                                                <div *ngIf="formGroup.get('contactNumber')?.errors?.['required']">Contact Number is required.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-6 form-group">
+                                            <label for="department"><i class="fas fa-building"></i> Department</label>
+                                            <input type="text" id="department" formControlName="department" class="form-control">
+                                            <div *ngIf="formGroup.get('department')?.invalid && (formGroup.get('department')?.dirty || formGroup.get('department')?.touched)" class="text-danger">
+                                                <div *ngIf="formGroup.get('department')?.errors?.['required']">Department is required.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="employeeId"><i class="fas fa-id-card"></i> Employee ID</label>
+                                            <input type="text" id="employeeId" formControlName="employeeId" class="form-control">
+                                            <div *ngIf="formGroup.get('employeeId')?.invalid && (formGroup.get('employeeId')?.dirty || formGroup.get('employeeId')?.touched)" class="text-danger">
+                                                <div *ngIf="formGroup.get('employeeId')?.errors?.['required']">Employee ID is required.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-6 form-group">
+                                            <label for="academicSession"><i class="fas fa-calendar-alt"></i> Academic Session</label>
+                                            <input type="text" id="academicSession" formControlName="academicSession" class="form-control">
+                                            <div *ngIf="formGroup.get('academicSession')?.invalid && (formGroup.get('academicSession')?.dirty || formGroup.get('academicSession')?.touched)" class="text-danger">
+                                                <div *ngIf="formGroup.get('academicSession')?.errors?.['required']">Academic Session is required.</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="address"><i class="fas fa-comment-alt"></i> Address</label>
+                                            <textarea id="address" formControlName="address" class="form-control" rows="4" placeholder="address"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <h3>User Details</h3>
+                                    <div formGroupName="user">
+                                      <div class="form-group mb-3">
+                                        <label for="username"><i class="fas fa-user-circle"></i> Username</label>
+                                        <input type="text" id="username" formControlName="username" class="form-control">
+                                        <div
+                                          *ngIf="formGroup.get('user.username')?.invalid && (formGroup.get('user.username')?.dirty || formGroup.get('user.username')?.touched)"
+                                          class="text-danger">
+                                          <div *ngIf="formGroup.get('user.username')?.errors?.['required']">
+                                            Username is required.
+                                          </div>
+                                        </div>
+                                      </div> 
+                                      <div class="form-group mb-3">
+                                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                                        <input type="email" id="email" formControlName="email" class="form-control">
+                                        <div
+                                          *ngIf="formGroup.get('user.email')?.invalid && (formGroup.get('user.email')?.dirty || formGroup.get('user.email')?.touched)"
+                                          class="text-danger">
+                                          <div *ngIf="formGroup.get('user.email')?.errors?.['required']">
+                                            Email is required.
+                                          </div>
+                                          <div *ngIf="formGroup.get('user.email')?.errors?.['email']">
+                                            Invalid email
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group mb-3">
+                                        <label for="password"><i class="fas fa-lock"></i> Password</label>
+                                        <input type="password" id="password" formControlName="password" class="form-control" required>
+                                        <div
+                                          *ngIf="formGroup.get('user.password')?.invalid && (formGroup.get('user.password')?.dirty || formGroup.get('user.password')?.touched)"
+                                          class="text-danger">
+                                          <div *ngIf="formGroup.get('user.password')?.errors?.['required']">
+                                            Password is required.
+                                          </div>
+                                          <div *ngIf="formGroup.get('user.password')?.errors?.['minlength']">
+                                            Minimum 2 characters required.
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                 
+
+                                    
+
+                                  
+
+                                    <button type="submit" class="btn btn-primary me-3">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

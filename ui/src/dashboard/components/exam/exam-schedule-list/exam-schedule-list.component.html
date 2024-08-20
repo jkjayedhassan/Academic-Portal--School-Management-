@@ -1,0 +1,38 @@
+<div class="mask d-flex align-items-center h-auto bg-gradient-custom-3">
+    <div class="container h-auto">
+        <div class="row d-flex justify-content-center align-items-center h-auto">
+            <div class="col-12 mt-3">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-between mb-4">
+                            <h4 class="text-center mt-3">Exam Schedule List</h4>
+                            <input type="text" class="form-control w-25" placeholder="Search..." (input)="onSearch($event)">
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th (click)="onSort('stClass')">Class Name</th>
+                                    <th (click)="onSort('subject')">Subject Name</th>
+                                    <th (click)="onSort('examDate')">Exam Date</th>
+                                    <th (click)="onSort('examDetails')">Exam Details</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let exam of filteredExams">
+                                    <td>{{ exam.stClass }}</td>
+                                    <td>{{ exam.subject }}</td>
+                                    <td>{{ exam.examDate | date }}</td>
+                                    <td>{{ exam.examDetails }}</td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" (click)="delete(exam)">Delete</button>
+                                      </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

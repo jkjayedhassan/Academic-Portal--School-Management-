@@ -1,0 +1,191 @@
+<div class="mask d-flex align-items-center h-auto bg gradient-custom-3">
+  <div class="container h-auto">
+    <div class="row d-flex justify-content-center align-items-center h-auto">
+      <div class="col-12 ">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+              integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <div class="row pt-5">
+              <div class="row pt-5">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-8 offset-md-1">
+                <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <h4 class="text-center">Student Registration Form</h4>
+                    <div class="form-group photo-container text-center col-md-1 ">
+                      <label for="photo">Photo</label>
+                      <input type="file" id="photo" (change)="onFileChange($event)" class="form-control mb-2">
+                      <div *ngIf="photoError" class="text-danger">
+                        Photo is required.
+                      </div>
+                      <img *ngIf="photoPreview" [src]="photoPreview" alt="Photo Preview" class="img-fluid">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6 form-group">
+                      <label for="firstName"><i class="fas fa-user"></i> First Name</label>
+                      <input type="text" id="firstName" formControlName="firstName" class="form-control">
+                      <div
+                        *ngIf="dataForm.get('firstName')?.invalid && (dataForm.get('firstName')?.dirty || dataForm.get('firstName')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="dataForm.get('firstName')?.errors?.['required']">
+                          First Name is required.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="lastName"><i class="fas fa-user"></i> Last Name</label>
+                      <input type="text" id="lastName" formControlName="lastName" class="form-control">
+                      <div
+                        *ngIf="dataForm.get('lastName')?.invalid && (dataForm.get('lastName')?.dirty || dataForm.get('lastName')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="dataForm.get('lastName')?.errors?.['required']">
+                          Last Name is required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6 form-group">
+                      <label for="roll"><i class="fas fa-id-card"></i> Roll</label>
+                      <input type="text" id="roll" formControlName="roll" class="form-control">
+                      <div
+                        *ngIf="dataForm.get('roll')?.invalid && (dataForm.get('roll')?.dirty || dataForm.get('roll')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="dataForm.get('roll')?.errors?.['required']">
+                          Roll is required.
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Class Column -->
+                    <div class="col-md-6 form-group">
+                      <label for="stClass" class="form-label">Class Name</label>
+                      <select id="stClass" formControlName="stClass" class="form-control" (change)="onClassChange($event)">
+                        <option value="" disabled>Select Class</option>
+                        <option *ngFor="let class of classes" [value]="class.id">{{ class.className }}</option>
+                      </select>
+                      <div *ngIf="dataForm.get('stClass')?.invalid && (dataForm.get('stClass')?.dirty || dataForm.get('stClass')?.touched)" class="text-danger">
+                        <div *ngIf="dataForm.get('stClass')?.errors?.['required']">
+                          Class Name is required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+
+
+
+                  <div class="row mb-3">
+                    <div formGroupName="dept" class="col-md-3 form-group">
+                      <label for="dept_id"><i class="fas fa-building"></i> Department</label>
+                      <select id="dept_id" formControlName="id" class="form-control">
+                        <option value="" >Select Department </option>
+                        <option *ngFor="let dept of deptList" [value]="dept.id">{{dept.name}}</option>
+                      </select>
+                    </div>
+
+
+                    <!-- Subjects Column -->
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label><i class="fas fa-book"></i> Subject</label>
+                        <div class="dropdown">
+                          <button class="btn border dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Select Subject
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li *ngFor="let subject of subjectList">
+                              <input type="checkbox" [value]="subject.id" (change)="onSubjectChange($event)"
+                                [checked]="isSubjectSelected(subject.id)">
+                              <label>{{ subject.name }}</label>
+                            </li>
+                          </ul>
+                        </div>
+                        <div
+                          *ngIf="dataForm.get('subjects')?.invalid && (dataForm.get('subjects')?.dirty || dataForm.get('subjects')?.touched)"
+                          class="text-danger">
+                          <div *ngIf="dataForm.get('subjects')?.errors?.['required']">
+                            At least one subject is required.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <!-- Session Column -->
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="session"><i class="fa-solid fa-chalkboard-user"></i> Session</label>
+                        <input type="text" id="session" formControlName="session" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group mb-3">
+                    <label for="address"><i class="fas fa-map-marker-alt"></i> Address</label>
+                    <textarea id="address" formControlName="address" class="form-control" rows="3"></textarea>
+                  </div>
+                  <!--==================================User Details ================================-->
+                  <h3>User Details</h3>
+                  <div formGroupName="user">
+                    <div class="form-group mb-3">
+                      <label for="username"><i class="fas fa-user-circle"></i> Username</label>
+                      <input type="text" id="username" formControlName="username" class="form-control">
+                      <div
+                        *ngIf="dataForm.get('user.username')?.invalid && (dataForm.get('user.username')?.dirty || dataForm.get('user.username')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="dataForm.get('user.username')?.errors?.['required']">
+                          Username is required.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                      <input type="email" id="email" formControlName="email" class="form-control">
+                      <div
+                        *ngIf="dataForm.get('user.email')?.invalid && (dataForm.get('user.email')?.dirty || dataForm.get('user.email')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="dataForm.get('user.email')?.errors?.['required']">
+                          Email is required.
+                        </div>
+                        <div *ngIf="dataForm.get('user.email')?.errors?.['email']">
+                          Invalid email
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="password"><i class="fas fa-lock"></i> Password</label>
+                      <input type="password" id="password" formControlName="password" class="form-control" required>
+                      <div
+                        *ngIf="dataForm.get('user.password')?.invalid && (dataForm.get('user.password')?.dirty || dataForm.get('user.password')?.touched)"
+                        class="text-danger">
+                        <div *ngIf="dataForm.get('user.password')?.errors?.['required']">
+                          Password is required.
+                        </div>
+                        <div *ngIf="dataForm.get('user.password')?.errors?.['minlength']">
+                          Minimum 2 characters required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary me-3">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

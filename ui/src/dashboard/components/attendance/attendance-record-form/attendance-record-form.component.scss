@@ -1,0 +1,128 @@
+/* General styling */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .mask {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+  }
+  
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-body {
+    padding: 40px;
+  }
+  
+  .heading-section {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-wrap {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-wrap h3 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .form-outline {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #495057;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .info-wrap {
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-wrap h3 {
+    color: #fff;
+  }
+  
+  .dbox {
+    margin-bottom: 20px;
+  }
+  
+  .dbox .icon {
+    font-size: 1.5rem;
+    color: #fff;
+    background: #0056b3;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dbox .text {
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .dbox .text p {
+    margin-bottom: 0;
+  }
+  
+  .dbox .text a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .dbox .text a:hover {
+    color: #d1ecf1;
+  }
+  
+  .text-danger {
+    color: #dc3545 !important;
+  }
+  
+  #form-message-warning, #form-message-success {
+    color: #dc3545; /* Change to green for success */
+    font-size: 0.875rem;
+  }
+  

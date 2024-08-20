@@ -1,0 +1,55 @@
+
+.photo-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    height: auto;
+    position: relative;
+    top: 20px;
+    left: 120px;
+  }
+
+  .photo-container img {
+    max-width: 50%;
+    max-height: 50%;
+  }
+
+
+
+  /* Optional custom styles */
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-menu label {
+  margin-left: 10px;
+}
+
+.dropdown-menu input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* To ensure proper spacing */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.bg-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+}
+
+.bg-dark {
+  background-color: #343a40;
+  color: white;
+  padding: 1rem;
+}
+
+.bg-danger {
+  background-color: #dc3545;
+  color: white;
+  padding: 1rem;
+}

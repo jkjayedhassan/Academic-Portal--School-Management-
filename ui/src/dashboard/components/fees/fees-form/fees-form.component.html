@@ -1,0 +1,92 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Student Fees Payment</h2>
+  <form [formGroup]="feesForm" (ngSubmit)="onSubmit()">
+    <div class=" offset-md-2 mb-3">
+
+      <div class="col-md-6 form-group">
+        <label for="stClassName" class="form-label">Class Name</label>
+        <select id="stClassName" formControlName="stClassName" class="form-control">
+          <option value="" disabled>Select Class</option>
+          <option *ngFor="let cls of classes" [value]="cls.className">{{ cls.className }}</option>
+        </select>
+
+      </div>
+
+      <div class="col-md-6 form-group">
+        <label for="studentName"><i class="fas fa-id-card"></i> Student Name</label>
+        <input type="text" id="studentName" formControlName="studentName" class="form-control">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="roll"><i class="fas fa-id-card"></i> Roll</label>
+        <input type="text" id="roll" formControlName="roll" class="form-control">
+      </div>
+
+      <div class="col-md-6 form-group">
+        <label for="amount" class="form-label">Amount (BDT)</label>
+        <input type="number" id="amount" formControlName="amount" class="form-control">
+      </div>
+
+      <div class="col-md-6 form-group">
+        <label for="paymentMethod" class="form-label">Payment Method</label>
+        <select id="paymentMethod" formControlName="paymentMethod" class="form-select">
+          <option value="cash">Cash</option>
+          <option value="bkash">bKash</option>
+          <option value="nagad">Nagad</option>
+          <option value="rocket">Rocket</option>
+        </select>
+      </div>
+      <div class="mb-3  col-md-5">
+        <label for="paymentReason" class="form-label">Payment Reason</label>
+        <select id="paymentReason" formControlName="paymentReason" class="form-select" required>
+          <option value="bkash">Admission Fee</option>
+          <option value="nagad">Exam Fee</option>
+          <option value="rocket">Monthly Fee</option>
+          <option value="rocket">Others</option>
+        </select>
+      </div>
+
+      <div class="mb-3 col-md-5">
+        <label for="transactionId" class="form-label">Transaction ID</label>
+        <input type="text" id="transactionId" formControlName="transactionId" class="form-control"
+           required>
+      </div>
+      <div class="col-md-6 mt-2">
+        <label for="paymentDate" class="white-label">Payment Date:</label>
+        <input type="date" id="paymentDate" class="form-control" formControlName="paymentDate">
+    </div>
+
+      <button type="submit" class="btn btn-primary col-md-6 form-group mt-4" [disabled]="feesForm.invalid">Submit
+        Payment</button>
+    </div>
+  </form>
+
+  <!-- <div *ngIf="receipt" class="mt-4">
+      <h4>Payment Receipt</h4>
+      <p>Transaction ID: {{ receipt.transactionId }}</p>
+      <p>Amount: {{ receipt.amount }} BDT</p>
+      <p>Payment Method: {{ receipt.paymentMethod }}</p>
+      <button (click)="downloadReceipt()">Download Receipt</button>
+    </div>
+  
+    <div class="mt-5">
+      <h3>Payment History</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Amount (BDT)</th>
+            <th>Payment Method</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payment of paymentHistory">
+            <td>{{ payment.transactionId }}</td>
+            <td>{{ payment.amount }}</td>
+            <td>{{ payment.paymentMethod }}</td>
+            <td>{{ payment.date | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+</div>

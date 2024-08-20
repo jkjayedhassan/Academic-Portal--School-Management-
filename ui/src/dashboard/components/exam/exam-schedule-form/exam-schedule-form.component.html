@@ -1,0 +1,76 @@
+<!-- exam-schedule-form.component.html -->
+
+<div class="mask d-flex align-items-center h-auto bg gradient-custom-3">
+    <div class="container h-auto">
+        <div class="row d-flex justify-content-center align-items-center h-auto">
+            <div class="col-12">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+                        <h2 class="text-uppercase text-center mb-5">Exam Schedule Form</h2>
+
+
+                        <div class="row">
+                            <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                                <div class="col-md-2"></div>
+                                <div class="row">
+
+                                    <!-- Subject Name Input -->
+                                    <div class="col-md-6 mt-2">
+                                        <label for="stClass" class="form-label">Class Name</label>
+                                        <select id="stClass" formControlName="stClass" class="form-control">
+                                            <option value="" disabled>Select Class</option>
+                                            <option *ngFor="let cls of classes" [value]="cls.id">{{ cls.className
+                                                }}</option>
+                                        </select>
+
+                                    </div>
+
+                                    <!-- Subject name Input -->
+
+                                </div>
+                                <div class="col-md-6 mt-2">
+                                    <label for="subject" class="form-label">Subject Name</label>
+                                    <select id="subject" formControlName="subject" class="form-control">
+                                        <option value="">Select Subject</option>
+                                        <option *ngFor="let subject of subjectList" [value]="subject.name">
+                                            {{subject.name}}</option>
+                                    </select>
+                                </div>
+
+                                <!-- Subject Code Input -->
+
+
+                                <!-- Exam Date Input -->
+                                <div class="col-md-6 mt-2">
+                                    <label for="examDate" class="white-label">Exam Date:</label>
+                                    <input type="date" id="examDate" class="form-control" formControlName="examDate">
+                                </div>
+
+                                <div>
+
+                                </div>
+
+                                <!-- Exam Details Input -->
+                                <div class="col-md-6 mt-2">
+                                    <label for="examDetails" class="white-label">Exam Details:</label>
+                                    <input type="textarea" class="form-control" placeholder="Exam Details"
+                                        formControlName="examDetails">
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="msg text-center mt-3">
+                                    <button mat-raised-button color="primary" type="submit"
+                                        class="btn-lg">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

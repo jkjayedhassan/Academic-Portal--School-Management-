@@ -1,0 +1,37 @@
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: auto;
+    background: #d6ecee;
+  }
+  
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+  button {
+    outline: none;
+    border: 0;
+    background: transparent;
+  }
+  .user {
+    font-size: 10px;
+  }
+
+  .user-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 40px;
+    &-icon {
+      height: 10px;
+      font-size: 10px;
+    }
+  }
+  
+  ::ng-deep {
+    .mat-menu-content {
+      width: 160px;
+    }
+  }
+  

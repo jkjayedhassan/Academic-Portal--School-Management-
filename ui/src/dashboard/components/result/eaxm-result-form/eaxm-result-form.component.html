@@ -1,0 +1,54 @@
+<div class="container mt-3">
+    <h3 class="text-center">Student Exam Result Form</h3>
+    <form [formGroup]="examResultForm" (ngSubmit)="submitForm()">
+      
+      <!-- Student Information -->
+      <div class="form-group">
+        <label for="studentName">Student Name</label>
+        <input id="studentName" type="text" class="form-control" formControlName="studentName" placeholder="Enter student name">
+      </div>
+      
+      <div class="form-group mt-3">
+        <label for="roll">Roll Number</label>
+        <input id="roll" type="text" class="form-control" formControlName="roll" placeholder="Enter roll number">
+      </div>
+      
+      <!-- Class and Department Selection -->
+      <div class="form-group mt-3">
+        <label for="className">Class Name</label>
+        <input id="className" type="text" class="form-control" formControlName="className" placeholder="Enter class name">
+      </div>
+      
+      <div class="form-group mt-3">
+        <label for="departmentName">Department</label>
+        <input id="departmentName" type="text" class="form-control" formControlName="departmentName" placeholder="Enter department name">
+      </div>
+  
+      <!-- Subject List -->
+      <div formArrayName="subjects" class="mt-4">
+        <div *ngFor="let subject of subjects.controls; let i=index" [formGroupName]="i" class="card p-3 mb-3">          <div class="form-group">
+            <label for="subjectName">Subject Name</label>
+            <input id="subjectName" type="text" class="form-control" formControlName="subjectName" placeholder="Enter subject name">
+          </div>
+          <div class="form-group mt-3">
+            <label for="marks">Marks</label>
+            <input id="marks" type="number" class="form-control" formControlName="marks" placeholder="Enter marks">
+          </div>
+          <div class="form-group mt-3">
+            <label for="grade">Grade</label>
+            <input id="grade" type="text" class="form-control" formControlName="grade" placeholder="Enter grade">
+          </div>
+          <button type="button" class="btn btn-danger mt-3" (click)="removeSubject(i)">Remove Subject</button>
+        </div>
+      </div>
+  
+      <!-- Add Subject Button -->
+      <button type="button" class="btn btn-primary" (click)="addSubject()">Add Subject</button>
+  
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="btn btn-success mt-3">Submit</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,514 @@
+<!-- Favicons -->
+<link href="../../../../public/img/favicon.png" rel="icon">
+<link href="../../../../public/img/apple-touch-icon.png" rel="apple-touch-icon">
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="../../../../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../../../public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="../../../../public/vendor/quill/quill.snow.css" rel="stylesheet">
+<link href="../../../../public/vendor/quill/quill.bubble.css" rel="stylesheet">
+<link href="../../../../public/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="../../../../public/vendor/simple-datatables/style.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="../../../../public/css/style.css" rel="stylesheet">
+
+
+
+
+<!-- <p>sidenav works!</p> -->
+
+
+<!-- ======= Sidebar ======= -->
+<!-- <div id="sidebar" class="sidebar"> -->
+<ul class="sidebar-nav" id="sidebar-nav">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/dashboard">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <!--************************************* Start Authority ******************************** -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#authority-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-journal-text"></i><span>Authority</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+
+    <!-- Authority -->
+    <ul id="authority-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#permission-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Permission</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="permission-submenu" class="submenu-content collapse" data-bs-parent="#authority-nav">
+          <li>
+
+
+            <a [routerLink]="'permission-form'">
+              <i class="bi bi-circle"></i><span>Permission Form</span>
+            </a>
+
+          </li>
+          <li>
+            <a [routerLink]="'permission-list'">
+              <i class="bi bi-circle"></i><span>Permission List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#user-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="user-submenu" class="submenu-content collapse" data-bs-parent="#authority-nav">
+          <li>
+            <a [routerLink]="'user-form'">
+              <i class="bi bi-circle"></i><span>User Form</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="'user-list'">
+              <i class="bi bi-circle"></i><span>User List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#role-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Role</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="role-submenu" class="submenu-content collapse" data-bs-parent="#authority-nav">
+          <li>
+            <a [routerLink]="'role-form'">
+              <i class="bi bi-circle"></i><span>Role Form</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="'role-list'">
+              <i class="bi bi-circle"></i><span>Role List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+
+  <!--************************************* End Authority ******************************** -->
+  <!--************************************* Start Academic ******************************** -->
+
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#academic-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-book"></i><span>Academic</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+
+    <!-- =======================================Student =================================-->
+    <ul id="academic-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#student-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Student</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="student-submenu" class="submenu-content collapse" data-bs-parent="#academic-nav">
+          <li>
+            <a [routerLink]="'student-form'">
+              <i class="bi bi-circle"></i><span>Student Form</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="'student-list'">
+              <i class="bi bi-list"></i><span>Student List</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'attendance-record-form'">
+              <i class="bi bi-circle"></i><span>Attendance Record Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'attendance-record-list'">
+              <i class="bi bi-list"></i><span>Attendance Record List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!--======================================Teacher================================= -->
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#teacher-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Teacher</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="teacher-submenu" class="submenu-content collapse" data-bs-parent="#academic-nav">
+          <li>
+            <a href="#" [routerLink]="'teacher-form'">
+              <i class="bi bi-circle"></i><span>Teacher Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'teacher-list'">
+              <i class="bi bi-circle"></i><span>Teacher List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- ======================================Subject=================================-->
+
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#study-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Study Info</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="study-submenu" class="submenu-content collapse" data-bs-parent="#academic-nav">
+          
+          <li>
+            <a href="#" class="submenu-toggle" data-bs-target="#class-submenu" data-bs-toggle="collapse">
+              <i class="bi bi-circle"></i><span>Class</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="class-submenu" class="submenu-content collapse" data-bs-parent="#study-submenu">
+              <li>
+                <a href="#" [routerLink]="'class-form'">
+                  <i class="bi bi-circle"></i><span>Class Form</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="'class-list'">
+                  <i class="bi bi-circle"></i><span>Class List</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="#" class="submenu-toggle" data-bs-target="#department-submenu" data-bs-toggle="collapse">
+              <i class="bi bi-circle"></i><span>Department</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="department-submenu" class="submenu-content collapse" data-bs-parent="#study-submenu">
+              <li>
+                <a href="#" [routerLink]="'department-form'">
+                  <i class="bi bi-circle"></i><span>Department Form</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" [routerLink]="'department-list'">
+                  <i class="bi bi-circle"></i><span>Department List</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="submenu-toggle" data-bs-target="#subject-submenu" data-bs-toggle="collapse">
+              <i class="bi bi-circle"></i><span>Subject</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="subject-submenu" class="submenu-content collapse" data-bs-parent="#study-submenu">
+              <li>
+                <a href="#" [routerLink]="'subject-form'">
+                  <i class="bi bi-circle"></i><span>Subject Form</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" [routerLink]="'subject-list'">
+                  <i class="bi bi-circle"></i><span>Subject List</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      
+
+      <!--======================================Assignment =================================-->
+      <!-- <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#assignment-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Assignment</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="assignment-submenu" class="submenu-content collapse" data-bs-parent="#academic-nav">
+          <li>
+            <a href="#" [routerLink]="'assignment-form'">
+              <i class="bi bi-circle"></i><span>Assignment Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'ssignment-list'">
+              <i class="bi bi-circle"></i><span>Assignment List</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'assignment-submission'">
+              <i class="bi bi-circle"></i><span>Assignment Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'assignment-submission-list'">
+              <i class="bi bi-circle"></i><span>Assignment List</span>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+      <!--====================================== Exam================================= -->
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#exam-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Exam</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="exam-submenu" class="submenu-content collapse" data-bs-parent="#academic-nav">
+          <li>
+            <a  [routerLink]="'exam-schedule-form'">
+              <i class="bi bi-circle"></i><span>Exam Schedule Form</span>
+            </a>
+          </li>
+
+        
+
+
+
+          <li>
+            <a [routerLink]="'exam-schedule-list'">
+              <i class="bi bi-circle"></i><span>Exam Schedule List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!--====================================== Result================================= -->
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#result-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Result</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="result-submenu" class="submenu-content collapse" data-bs-parent="#academic-nav">
+          <li>
+            <a  [routerLink]="'exam-result-form'">
+              <i class="bi bi-circle"></i><span>Result Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'exam-result-list'">
+              <i class="bi bi-circle"></i><span>Result List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- =======================================Payment================================= -->
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#fee-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-circle"></i><span>Fees Details</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="fee-submenu" class="submenu-content collapse" data-bs-parent="#academic-nav">
+          <li>
+            <a href="#" [routerLink]="'fees-form'">
+              <i class="bi bi-circle"></i><span>Fees Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'fees-list'">
+              <i class="bi bi-circle"></i><span>Fees List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </li>
+
+  <!--*********************************** End Academic ******************************** -->
+  <!--************************************ Start Notice ******************************** -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#notice-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-bell-fill"></i><span>Notice</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+
+    <!-- notice -->
+    <ul id="notice-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+      <!-- Holiday Section -->
+      <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#holiday-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-calendar"></i><span>Holiday</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="holiday-submenu" class="submenu-content collapse" data-bs-parent="#notice-nav">
+          <li>
+            <a  [routerLink]="'holiday-form'">
+              <i class="bi bi-file-earmark-text"></i><span>Holiday Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'holiday-list'">
+              <i class="bi bi-list-ul"></i><span>Holiday List</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- Tender Section -->
+      <!-- <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#tender-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-file-text"></i><span>Tender</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tender-submenu" class="submenu-content collapse" data-bs-parent="#notice-nav">
+          <li>
+            <a href="#" [routerLink]="'tender-form'">
+              <i class="bi bi-pencil"></i><span>Tender Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'tender-list'">
+              <i class="bi bi-table"></i><span>Tender List</span>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+      <!-- Circular Section -->
+      <!-- <li>
+        <a href="#" class="submenu-toggle" data-bs-target="#circular-submenu" data-bs-toggle="collapse">
+          <i class="bi bi-megaphone"></i><span>Circular</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="circular-submenu" class="submenu-content collapse" data-bs-parent="#notice-nav">
+          <li>
+            <a href="#" [routerLink]="'circular-form'">
+              <i class="bi bi-file-earmark-text"></i><span>Circular Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" [routerLink]="'circular-list'">
+              <i class="bi bi-list-ul"></i><span>Circular List</span>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+    </ul>
+    
+  </li>
+
+</ul>
+
+
+<!-- End Sidebar-->
+
+
+<!-- Vendor JS Files -->
+<script src="../../../../public/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../../../../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../public/vendor/chart.js/chart.umd.js"></script>
+<script src="../../../../public/vendor/echarts/echarts.min.js"></script>
+<script src="../../../../public/vendor/quill/quill.js"></script>
+<script src="../../../../public/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="../../../../public/vendor/tinymce/tinymce.min.js"></script>
+<script src="../../../../public/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../../../../public/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- another design -->
+
+<!-- 
+<li class="nav-item">
+
+  <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+    <i class="bi bi-journal-text"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+  </a>
+
+
+  <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+    <li>
+      <a href="#" class="submenu-toggle" data-bs-target="#permission-submenu" data-bs-toggle="collapse">
+        <i class="bi bi-circle"></i><span>Permission</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="permission-submenu" class="submenu-content collapse" data-bs-parent="#components-nav">
+        <li>
+          <a href="#" [routerLink]="'permission-form'">
+            <i class="bi bi-circle"></i><span>Permission Form</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" [routerLink]="'permission-list'">
+            <i class="bi bi-circle"></i><span>Permission List</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li><!-- End Components Nav 
+
+
+
+
+
+
+
+
+ <li>
+      <div class="sidenav">
+        <div class="menu-item">Permission
+          <div class="submenu">
+            <div class="submenu-item">
+              <div class="subsubmenu" [routerLink]="'permission-form'">Permission Form</div>
+              <div class="subsubmenu" [routerLink]="'permission-list'">Permission List</div>
+            </div>
+          </div>
+        </div>
+
+
+          <li>
+            <div class="menu-item">Academic
+              <div class="submenu">
+                <div class="submenu-item">
+                  <div class="subsubmenu" [routerLink]="'permission-form'">Permission Form</div>
+                  <div class="subsubmenu" [routerLink]="'permission-list'">Permission List</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="menu-item">Academic
+              <div class="submenu">
+                <div class="submenu-item">
+                  <div class="subsubmenu" [routerLink]="'permission-form'">Permission Form</div>
+                  <div class="subsubmenu" [routerLink]="'permission-list'">Permission List</div>
+                </div>
+              </div>
+            </div>
+          </li>
+      </div>
+    </li>
+
+
+-->

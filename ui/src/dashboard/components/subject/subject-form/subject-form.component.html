@@ -1,0 +1,75 @@
+<div class="mask d-flex align-items-center h-auto bg-gradient-custom-3">
+  <div class="container h-auto">
+    <div class="row d-flex justify-content-center align-items-center h-auto">
+      <div class="col-12">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <h2 class="text-center">Subject Form</h2>
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+
+              <div class="col-md-6 mt-2">
+                <label for="name" class="form-label">Subject Name</label>
+                <input type="text" id="name" formControlName="name" class="form-control">
+                <div
+                  *ngIf="formGroup.get('name')?.invalid && (formGroup.get('name')?.dirty || formGroup.get('name')?.touched)"
+                  class="text-danger">
+                  <div *ngIf="formGroup.get('name')?.errors?.['required']">
+                    Subject Name is required.
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-6 mt-2">
+                <label for="code" class="form-label">Subject Code</label>
+                <input type="text" id="code" formControlName="code" class="form-control">
+                <div
+                  *ngIf="formGroup.get('code')?.invalid && (formGroup.get('code')?.dirty || formGroup.get('code')?.touched)"
+                  class="text-danger">
+                  <div *ngIf="formGroup.get('code')?.errors?.['required']">
+                    Subject Code is required.
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!-- Class Column -->
+              <div class="col-md-6 mt-2 ">
+                <div class="form-group ">
+                  <label><i class="fas fa-book"></i> Class</label>
+                  <div class="dropdown">
+                    <button class="btn border dropdown-toggle w-100 text-start" type="button" id="dropdownMenuButton"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Select Class
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li *ngFor="let class of classList">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [value]="class.id"
+                              (change)="onClassChange($event)" [checked]="isClassSelected(class.id)" />
+                            {{ class.className }}
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+              <div class="d-flex mt-4">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <a [routerLink]="'/subject-list'" class="btn btn-secondary">Back to Subject List</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

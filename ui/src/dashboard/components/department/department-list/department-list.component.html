@@ -1,0 +1,35 @@
+<div class="mask d-flex align-items-center h-auto bg-gradient-custom-3">
+    <div class="container h-auto">
+      <div class="row d-flex justify-content-center align-items-center h-auto">
+        <div class="col-12">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <div class="d-flex justify-content-between mb-4">
+                <h4 class="text-center">Department List</h4>
+                <a [routerLink]="'/department-form'" class="btn btn-success">Add New Department</a>
+              </div>
+  
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Department Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let department of departments">
+                    <td>{{ department.name }}</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm me-2" (click)="editDepartment(department.departmentName)">Edit</button>
+                      <button class="btn btn-danger btn-sm" (click)="deleteDepartment(department.departmentName)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

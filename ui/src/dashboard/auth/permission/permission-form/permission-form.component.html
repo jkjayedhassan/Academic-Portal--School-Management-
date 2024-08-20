@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+                <h1>Permission Form</h1>
+
+                <!-- Name Field -->
+                <div class="form-group mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter Name">
+                    <div *ngIf="formGroup.get('name')?.invalid && (formGroup.get('name')?.dirty || formGroup.get('name')?.touched)" class="text-danger">
+                        <div *ngIf="formGroup.get('name')?.errors?.['required']">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component Key Field -->
+                <div class="form-group mb-3">
+                    <label for="componentKey">Component Key</label>
+                    <input type="text" id="componentKey" formControlName="componentKey" class="form-control" placeholder="Enter Component Key">
+                    <div *ngIf="formGroup.get('componentKey')?.invalid && (formGroup.get('componentKey')?.dirty || formGroup.get('componentKey')?.touched)" class="text-danger">
+                        <div *ngIf="formGroup.get('componentKey')?.errors?.['required']">
+                            Component Key is required.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description Field -->
+                <div class="form-group mb-3">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" formControlName="description" class="form-control" placeholder="Enter Description">
+                </div>
+
+                <!-- Category Field -->
+                <div class="form-group mb-3">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" formControlName="category" class="form-control" placeholder="Enter Category">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
